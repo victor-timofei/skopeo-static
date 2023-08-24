@@ -3,6 +3,8 @@ run-name: ${{ github.actor }} is building skopeo
 on: [push]
 jobs:
   build-and-publish:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     env:
       CGO_ENABLED: 0
