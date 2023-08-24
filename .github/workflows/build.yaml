@@ -10,8 +10,8 @@ jobs:
     steps:
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - name: Install dependencies
-        run: sudo apt install git
+        run: echo "Nothing to install"
       - name: Check out `containers/skopeo`
         run: git clone https://github.com/containers/skopeo
       - name: Build skopeo
-        run: cd skope && make GO_DYN_FLAGS= BUILDTAGS=containers_image_openpgp
+        run: cd skopeo && make GO_DYN_FLAGS= BUILDTAGS=containers_image_openpgp
