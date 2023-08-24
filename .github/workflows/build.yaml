@@ -14,4 +14,13 @@ jobs:
       - name: Check out `containers/skopeo`
         run: git clone https://github.com/containers/skopeo
       - name: Build skopeo
-        run: cd skopeo && make GO_DYN_FLAGS= BUILDTAGS=containers_image_openpgp
+        run: cd skopeo && make GO_DYN_FLAGS= BUILDTAGS=containers_image_openpgp && ldd bin/skopeo
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: bin/skopeo
+          asset_name: skopeo-nightly
+          tag: ${{ github.ref }}
+          overwrite: true
+          body: "Skopeo nightly"
