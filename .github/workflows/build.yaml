@@ -10,7 +10,7 @@ jobs:
     steps:
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - name: Install dependencies
-        run: apt install git
+        run: sudo apt install git
       - name: Check out `containers/skopeo`
         run: git clone https://github.com/containers/skopeo
       - name: Build skopeo
