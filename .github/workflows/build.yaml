@@ -13,4 +13,5 @@ jobs:
         run: apt install git
       - name: Check out `containers/skopeo`
         run: git clone https://github.com/containers/skopeo
-      - name: cd skope && make GO_DYN_FLAGS= BUILDTAGS=containers_image_openpgp
+      - name: Build skopeo
+        run: cd skope && make GO_DYN_FLAGS= BUILDTAGS=containers_image_openpgp
